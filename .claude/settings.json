@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx playwright-cli --config playwright-cli.json snapshot https://playwrightworkshops.com/product/black-printed-coffee-mug/)",
+      "Bash(npx playwright-cli --config playwright-cli.json open https://playwrightworkshops.com/cart/)",
+      "Bash(npx playwright-cli --config playwright-cli.json open https://playwrightworkshops.com/product/black-printed-coffee-mug/)",
+      "Bash(npx playwright-cli --config playwright-cli.json run 'await page.getByRole\\(\"\"button\"\", { name: /Add to cart/i }\\).click\\(\\); await page.getByRole\\(\"\"link\"\", { name: /View cart/i }\\).click\\(\\); await page.waitForURL\\(/cart/\\);')",
+      "Bash(npx playwright-cli --config playwright-cli.json click e82)",
+      "Bash(npx playwright-cli --config playwright-cli.json snapshot)",
+      "Bash(npx playwright-cli --config playwright-cli.json click e57)",
+      "Bash(npx playwright-cli --config playwright-cli.json close)"
+    ]
+  }
+}
