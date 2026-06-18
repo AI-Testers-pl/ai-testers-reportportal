@@ -1,9 +1,20 @@
 import { expect, test } from "../../tests/fixtures/checkout.fixtures";
+import { applyRpAttributes } from "../../src/utils/reporting";
 
 test.use({ trace: "on", screenshot: "on" });
 
 test("@smoke add product to cart and verify subtotal", async ({ app, page }) => {
-  const productName = "Black Printed Coffee Mugg";
+  applyRpAttributes({
+    feature: "cart",
+    type: "positive",
+    priority: "P0",
+    risk: "high",
+    area: "ecommerce",
+    testCaseId: "checkout.cart.add-product",
+    description: "Add a single product to the cart and verify quantity + subtotal."
+  });
+
+  const productName = "Black Printed Coffee Mug";
 
   await test.step("Navigate to shop and add product to cart", async () => {
     console.log(`Adding product "${productName}" to cart`);

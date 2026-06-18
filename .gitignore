@@ -5,3 +5,5 @@ blob-report/
 .env
 .cursor/
 .playwright-cli/
+.playwright-mcp/
+.DS_Store

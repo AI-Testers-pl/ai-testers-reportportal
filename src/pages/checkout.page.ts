@@ -41,7 +41,10 @@ export class CheckoutPage extends BasePage {
   }
 
   errorListItems(): Locator {
-    return this.page.locator(".woocommerce-error li");
+    // Classic i blokowy checkout WooCommerce inaczej renderują błędy walidacji
+    // (`.woocommerce-error li` vs notice/`<p>` w roli alert). Dopasuj po treści
+    // komunikatu – działa w obu wariantach.
+    return this.page.getByText(/is a required field/i);
   }
 
   firstNameField(): Locator {

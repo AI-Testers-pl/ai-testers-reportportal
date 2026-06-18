@@ -37,7 +37,10 @@ function buildReporters(): ReporterDescription[] {
           { key: "suite", value: "checkout" },
           { key: "profile", value: runProfile },
           { key: "environment", value: environment },
-          { key: "browser", value: "chromium" }
+          { key: "browser", value: "chromium" },
+          { key: "node", value: process.version },
+          { key: "os", value: process.platform },
+          { key: "ci", value: String(!!process.env.CI) }
         ]
       }
     ]);
@@ -63,7 +66,7 @@ export default defineConfig({
   },
   use: {
     baseURL,
-    headless: false,
+    headless: process.env.HEADLESS === "true" || process.env.HEADLESS === "1",
     trace: "on-first-retry",
     screenshot: "only-on-failure",
     video: "retain-on-failure",
